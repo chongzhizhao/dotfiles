@@ -11,9 +11,9 @@ set shortmess+=I
 
 set number " show line number
 set relativenumber " show relative line number
-
+set history=8192 " more history
 set hls " highlight search
-
+set scrolloff=5 " show lines above and below cursor (when possible)
 set autochdir " change directory to the last opened file
 set laststatus=2 " always show the status line at the bottom, even if you only have one window open.
 set backspace=indent,eol,start
@@ -31,24 +31,42 @@ set softtabstop=4
 " for more information on this.
 set hidden
 
-" This setting makes search case-insensitive when all characters in the string
-" being searched are lowercase. However, the search becomes case-sensitive if
-" it contains any capital letters. This makes searching more convenient.
+" Smart case-sensitive search
 set ignorecase
 set smartcase
 
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 
-" Unbind some useless/annoying default key bindings.
-nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
-
 " Disable audible bell because it's annoying.
 set noerrorbells visualbell t_vb=
 
-" Enable mouse support. You should avoid relying on this too much, but it can
-" sometimes be convenient.
-set mouse+=a
+set mouse+=a " enable mouse mode (scrolling, selection, etc)
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+" Folding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+" space open/closes folds
+" nnoremap <space> za
+set foldmethod=indent   " fold based on indent level
+" This is especially useful for me since I spend my days in Python.
+" Other acceptable values are marker, manual, expr, syntax, diff.
+" Run :help foldmethod to find out what each of those do.
+
+" open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" unbind keys
+map <C-a> <Nop>
+map <C-x> <Nop>
+nmap Q <Nop>
 
 set tabline=%!MyTabLine()  " custom tab pages line
 function MyTabLine()
