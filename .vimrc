@@ -138,3 +138,7 @@ function MyTabLine()
         endif
         return s
 endfunction
+
+" read pdf files as text files
+:command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
+" :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
