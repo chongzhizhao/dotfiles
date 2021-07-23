@@ -82,6 +82,7 @@ ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export DEFAULT_USER="$(whoami)"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
