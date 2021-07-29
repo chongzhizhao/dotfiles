@@ -1,15 +1,3 @@
-" Plugin configs
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_tab_count = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#tab_nr_type = 2 " tab number
-"let g:airline#extensions#tabline#excludes = ['branches', 'index']
-"let g:airline#extensions#tabline#buffer_idx_mode = 1
-
 set nocompatible " not vi compatible
 
 syntax on " Turn on syntax highlighting.
@@ -83,3 +71,16 @@ nmap Q <Nop>
 " read pdf files as text files
 :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
 " :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
+
+" Plugin configs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type = 2 " tab number
+"let g:airline#extensions#tabline#excludes = ['branches', 'index']
+"let g:airline#extensions#tabline#buffer_idx_mode = 1
+
