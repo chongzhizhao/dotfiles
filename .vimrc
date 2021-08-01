@@ -1,14 +1,11 @@
 set nocompatible " not vi compatible
-
+let mapleader=" " " leader key is space
 syntax on " Turn on syntax highlighting.
 set showmatch " show matching braces when text indicator is over them
-
+set hidden " enable hiding buffers with unsaved changes
 filetype plugin indent on " enable file type detection
 set autoindent
-
-" Disable the default Vim startup message.
-set shortmess+=I
-
+set shortmess+=I " disable the default Vim startup message.
 set number " show line number
 set relativenumber " show relative line number
 set history=8192 " more history
@@ -24,19 +21,10 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-" By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
-" forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
-" hidden buffers helpful enough to disable this protection. See `:help hidden`
-" for more information on this.
-set hidden
-
 " Smart case-sensitive search
 set ignorecase
 set smartcase
-
-" Enable searching as you type, rather than waiting till you press enter.
-set incsearch
+set incsearch " enable searching as you type
 
 " Disable audible bell because it's annoying.
 set noerrorbells visualbell t_vb=
@@ -74,6 +62,7 @@ nmap Q <Nop>
 
 " Plugin configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 1
@@ -85,3 +74,9 @@ let g:airline#extensions#tabline#tab_nr_type = 2 " tab number
 "let g:airline#extensions#tabline#excludes = ['branches', 'index']
 "let g:airline#extensions#tabline#buffer_idx_mode = 1
 
+" gundo
+nnoremap <Leader>u :GundoToggle<CR>
+
+" nerdtree
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
