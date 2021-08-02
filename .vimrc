@@ -36,7 +36,6 @@ if &term =~ '^screen'
 endif
 
 " Folding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
@@ -46,6 +45,10 @@ set foldmethod=indent   " fold based on indent level
 " This is especially useful for me since I spend my days in Python.
 " Other acceptable values are marker, manual, expr, syntax, diff.
 " Run :help foldmethod to find out what each of those do.
+
+" Undo
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 
 " open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -74,8 +77,8 @@ let g:airline#extensions#tabline#tab_nr_type = 2 " tab number
 "let g:airline#extensions#tabline#excludes = ['branches', 'index']
 "let g:airline#extensions#tabline#buffer_idx_mode = 1
 
-" gundo
-nnoremap <Leader>u :GundoToggle<CR>
+" undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
 
 " nerdtree
 nnoremap <Leader>n :NERDTreeToggle<CR>
