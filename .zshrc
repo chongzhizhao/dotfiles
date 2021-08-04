@@ -72,7 +72,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git vi-mode zsh-syntax-highlighting zsh-autosuggestions colored-man-pages)
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 # VI_MODE_SET_CURSOR=true
 # MODE_INDICATOR="%F{yellow}+%f"
