@@ -134,3 +134,6 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 " nerdtree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
+
+" cscope
+set cscoperelative
