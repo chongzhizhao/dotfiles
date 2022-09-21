@@ -14,6 +14,7 @@ set scrolloff=5 " show lines above and below cursor (when possible)
 set autochdir " change directory to the last opened file
 set laststatus=2 " always show the status line at the bottom, even if you only have one window open.
 set backspace=indent,eol,start
+set colorcolumn=80 " try not to exceed 80 characters in a single line of code
 
 " Use 4 spaces instead of tab when formatting
 set expandtab
