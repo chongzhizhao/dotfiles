@@ -1,13 +1,27 @@
 -- [[ plug.lua ]]
 
-require('packer').startup(function()
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
+end
+
+local packer_bootstrap = ensure_packer()
+
+return require('packer').startup(function()
     -- [[ Plugins Go Here ]]
+    -- File Management
     use {                                              -- filesystem navigation
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons'        -- filesystem icons
     }
 
-    -- [[ Theme ]]
+    -- Theme
     use { 'mhinz/vim-startify' }                       -- start screen
     use { 'DanilaMihailov/beacon.nvim' }               -- cursor jump
     use {
@@ -17,7 +31,7 @@ require('packer').startup(function()
     }
     use { 'Mofiqul/dracula.nvim' }                     -- colorscheme
 
-    -- [[ Dev ]]
+    -- Dev
     use {
         'nvim-telescope/telescope.nvim',                 -- fuzzy finder
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -37,4 +51,12 @@ require('packer').startup(function()
     use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/vim-vsnip-integ' }
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+      require('packer').sync()
+  end
 end)
