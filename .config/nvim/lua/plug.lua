@@ -26,10 +26,14 @@ return require('packer').startup(function()
     use { 'DanilaMihailov/beacon.nvim' }               -- cursor jump
     use {
         'nvim-lualine/lualine.nvim',                     -- statusline
-        requires = {'kyazdani42/nvim-web-devicons',
-        opt = true}
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use { 'Mofiqul/dracula.nvim' }                     -- colorscheme
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "v2.*",
+        requires = 'kyazdani42/nvim-web-devicons'
+    }
 
     -- Dev
     use {
@@ -42,7 +46,7 @@ return require('packer').startup(function()
     use { 'junegunn/gv.vim' }                          -- commit history
     use { 'windwp/nvim-autopairs' }                    -- auto close brackets, etc.
 
-    -- LSP
+    -- Parsing & LSP
     use { 'nvim-treesitter/nvim-treesitter' }
     use { 'neovim/nvim-lspconfig' }
     use { 'williamboman/nvim-lsp-installer' }

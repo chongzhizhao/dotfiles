@@ -7,29 +7,33 @@ require('opts')      -- Options
 require('keys')      -- Keymaps
 
 -- PLUGINS
-local configs = require'nvim-treesitter.configs'
-configs.setup {
-    highlight = { -- enable highlighting
-    enable = true,
-},
-indent = {
-    enable = false, -- default is disabled anyways
-}
+require('nvim-treesitter.configs').setup{
+    highlight = { enable = true, },
+    indent = { enable = false, },
 }
 
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.setup {}
+require("nvim-lsp-installer").setup {}
 
 require('nvim-tree').setup{}
 require('lualine').setup {
     options = {
         theme = 'dracula-nvim'
+    },
+}
+require("bufferline").setup{
+    options = {
+        mode = "buffers",
+        numbers = function(opts)
+            return string.format('%s·%s', opts.id, opts.raise(opts.ordinal))
+        end,
+        indicator = { style = 'underline' },
+        separator_style = "slant",
+        sort_by = 'tabs',
     }
 }
 require('nvim-autopairs').setup{}
 
 local cmp = require'cmp'
-
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -61,7 +65,6 @@ cmp.setup({
         { name = 'buffer' },
     })
 })
-
 -- Use buffer source for `/` and `?`(if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({'/', '?'}, {
     mapping = cmp.mapping.preset.cmdline(),
@@ -69,7 +72,6 @@ cmp.setup.cmdline({'/', '?'}, {
         { name = 'buffer' }
     }
 })
-
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
