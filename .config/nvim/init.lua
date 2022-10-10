@@ -23,9 +23,7 @@ require('lualine').setup {
 require("bufferline").setup{
     options = {
         mode = "buffers",
-        numbers = function(opts)
-            return string.format('%s·%s', opts.id, opts.raise(opts.ordinal))
-        end,
+        numbers = "buffer_id",
         indicator = { style = 'underline' },
         separator_style = "slant",
         sort_by = 'tabs',
