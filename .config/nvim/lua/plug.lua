@@ -32,6 +32,7 @@ return require('packer').startup(function()
     use { 'tpope/vim-fugitive' }                       -- git integration
     use { 'junegunn/gv.vim' }                          -- commit history
     use { 'windwp/nvim-autopairs' }                    -- auto close brackets, etc.
+    use { 'mbbill/undotree'}                            -- persistent undo
 
     -- Parsing & LSP
     use { 'nvim-treesitter/nvim-treesitter' }

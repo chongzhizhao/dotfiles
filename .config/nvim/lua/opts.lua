@@ -37,3 +37,7 @@ opt.splitbelow = true            -- bool: Place new window below the current one
 -- [[ Folding ]]
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- [[ Undo ]]
+opt.undofile = true
+opt.undodir = vim.fn.stdpath('config') .. '/undodir'

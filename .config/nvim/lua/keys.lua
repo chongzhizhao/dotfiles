@@ -31,9 +31,13 @@ keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 -- Toggle nvim-tree
 keymap('n', '<Leader>n', [[:NvimTreeToggle<CR>]], opts)
 -- Toggle more plugins
+keymap('n', '<Leader>u', [[:UndotreeToggle<CR>]], opts)
 keymap('n', '<Leader>l', [[:IndentLinesToggle<CR>]], opts)
 keymap('n', '<Leader>t', [[:TagbarToggle<CR>]], opts)
 keymap('n', '<Leader>ff', [[:Telescope find_files<CR>]], opts)
+keymap('n', '<Leader>fg', [[:Telescope live_grep<CR>]], opts)
+keymap('n', '<Leader>fb', [[:Telescope buffers<CR>]], opts)
+keymap('n', '<Leader>fh', [[:Telescope help_tags<CR>]], opts)
 
 -- LSP
 local function nkeymap(key, map)

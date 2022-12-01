@@ -23,10 +23,12 @@ require('lualine').setup {
 require("bufferline").setup{
     options = {
         mode = "buffers",
-        numbers = "buffer_id",
+        numbers = function(opts)
+            return string.format('%s', opts.id)
+        end,
         indicator = { style = 'underline' },
         separator_style = "slant",
-        sort_by = 'tabs',
+        sort_by = 'id',
     }
 }
 require('nvim-autopairs').setup{}
