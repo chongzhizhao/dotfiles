@@ -28,6 +28,9 @@ keymap("n", "<S-Down>", ":resize -2<CR>", opts)
 keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
+-- Close buffer without closing window
+keymap('n', '<Leader>q', [[:bp<bar>sp<bar>bn<bar>bd<CR>]], opts)
+
 -- Toggle nvim-tree
 keymap('n', '<Leader>n', [[:NvimTreeToggle<CR>]], opts)
 -- Toggle more plugins
@@ -54,3 +57,11 @@ nkeymap('K', ':lua vim.lsp.buf.hover()<cr>')
 nkeymap('<c-s>', ':lua vim.lsp.buf.signature_help()<cr>')
 nkeymap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
 nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
+-- See diagnostic messages in a floating window
+nkeymap('<leader>do', '<cmd>lua vim.diagnostic.open_float()<CR>')
+nkeymap('<leader>d[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+nkeymap('<leader>d]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+-- The following command requires plug-ins "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", and optionally "kyazdani42/nvim-web-devicons" for icon support
+nkeymap('<leader>dd', '<cmd>Telescope diagnostics<CR>')
+-- -- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
+-- -- nkeymap('<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>')

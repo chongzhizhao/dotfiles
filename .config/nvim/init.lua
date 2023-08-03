@@ -12,7 +12,18 @@ require('nvim-treesitter.configs').setup{
     indent = { enable = false, },
 }
 
-require("nvim-lsp-installer").setup {}
+require("mason").setup {
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+}
+require("mason-lspconfig").setup {
+    ensure_installed = { "lua_ls" },
+}
 
 require('nvim-tree').setup{}
 require('lualine').setup {
@@ -85,16 +96,16 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 ---- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig').sumneko_lua.setup {
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim', 'use' },
-            },
-        }
-    }
-}
+-- require('lspconfig').sumneko_lua.setup {
+--     capabilities = capabilities,
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 globals = { 'vim', 'use' },
+--             },
+--         }
+--     }
+-- }
 require('lspconfig').clangd.setup {
     capabilities = capabilities,
     cmd = {
@@ -106,9 +117,9 @@ require('lspconfig').clangd.setup {
         "--header-insertion=iwyu"
     },
 }
-require('lspconfig').cmake.setup {
-    capabilities = capabilities,
-}
-require('lspconfig').pylsp.setup {
-    capabilities = capabilities,
-}
+-- require('lspconfig').cmake.setup {
+--     capabilities = capabilities,
+-- }
+-- require('lspconfig').pylsp.setup {
+--     capabilities = capabilities,
+-- }
