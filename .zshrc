@@ -106,3 +106,14 @@ export DEFAULT_USER="$(whoami)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Uncomment for MacBook
+#export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin
+#
+#if [[ -n "$HOMEBREW_PREFIX" ]]; then
+#  fpath=("$HOMEBREW_PREFIX/share/zsh-completions" "$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+#  autoload -Uz compinit
+#  compinit
+#fi
+#
+#export PATH="$GEM_HOME/bin:$PATH"
